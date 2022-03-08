@@ -1,0 +1,14 @@
+.a-custom{
+    text-decoration: none;
+    color: #bfb5b2;
+}
+
+.a-custom:hover{
+    text-decoration: none;
+    color: #83adb5;
+}
+
+.link-font {
+    font-size: 18pt;
+    font-weight: 700;
+}
