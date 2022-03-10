@@ -1,15 +1,18 @@
-<div class="sidebar mt-5 ms-2 rounded">
-    <span class="d-flex header justify-content-center py-3 ">Parameters</span>
+<div class="container-fluid">
+  <div class="d-flex flex-row">
+    <div class="sidebar mt-5 ms-2 rounded shadow">
+      <span class="d-flex header justify-content-center py-3 ">Parameters</span>
 
-    <div class="input-group mb-3 px-3">
+      <div class="input-group mb-3 px-3">
         <span class="input-group-text input-custom-2" id="basic-addon1">
-            <img src="assets\database.png" alt="" height="20">
+          <img src="assets\database.png" alt="" height="20">
         </span>
-        <input type="text" class="form-control input-custom" placeholder="number of nodes" >
+        <input type="text" class="form-control input-custom" placeholder="number of nodes">
       </div>
 
       <div class="dropdown px-3 mb-3">
-        <button class="btn btn-secondary dropdown-toggle input-custom" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button class="btn btn-secondary dropdown-toggle input-custom" type="button" id="dropdownMenuButton"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Malware Type
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -21,7 +24,8 @@
       </div>
 
       <div class="dropdown px-3 mb-3">
-        <button class="btn btn-secondary dropdown-toggle input-custom" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button class="btn btn-secondary dropdown-toggle input-custom" type="button" id="dropdownMenuButton"
+          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Security Level
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -31,4 +35,79 @@
         </div>
       </div>
 
-</div>
+    </div>
+
+    <!-- Everything to the right of the sidebar -->
+    <div class="col mt-5 ms-4">
+      <div class="d-flex flex-row">
+
+        <!-- middle content -->
+        <div class="col-10">
+
+          <!-- The row for the run button -->
+          <div class="d-flex flex-row my-2">
+
+            <!-- This is only for spacing -->
+            <div class="col-9"></div>
+
+            <!-- Run button -->
+            <div class="col-3">
+              <button type="button" id="run" class="btn run-button shadow">Run</button>
+            </div>
+
+          </div>
+
+          <!-- Tall row containing the simulation -->
+          <div class="d-flex flex-row middle rounded shadow mt-5">
+            <div class="col">
+              <!-- Top half of middle -->
+              <div class="d-flex flex-row p-3" style="height: 60%;">
+                <div class="col middle-section rounded p-2">
+                  <div class="d-flex flex-row">
+                  <span>Some sort of graphical representation of the simulation will go here. The simulation data is currently not integrated with the front end.</span>
+                </div>
+
+                  <!-- Placeholder image -->
+                  <div class="d-flex flex-row justify-content-center mt-3">
+                  <img  class="gif rounded shadow" src="assets\the-rock-no-data.gif" alt="">
+                </div>
+
+                </div>
+              </div>
+
+              <!-- bottom half of middle -->
+              <div class="d-flex flex-row p-3 pt-0" style="height: 40%;">
+                <div class="col middle-section rounded p-2">
+                  <span>Information about the simulation that just ran</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- The right column. Data -->
+        <div class="col-2 ps-3">
+          <div class="d-flex flex-row">
+            <div class="col data rounded shadow p-3">
+             
+              <div class="d-flex flex-row justify-content-center mb-2">
+                <span class="header">Data</span>
+              </div>
+
+              <div class="d-flex flex-row">
+                <div class="col data-inner rounded p-2">
+                  <span>Placeholder</span>
+                </div>
+              </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
