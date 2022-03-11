@@ -16,3 +16,19 @@
 .top-custom {
     background-color: #5e3c58;
 }
+
+.link-anim {
+    transition: transform cubic-bezier(.65,.05,.36,1) .3s;
+}
+
+.link-anim:hover {
+    transform: translatey(5px);
+}
+
+.logo-anim {
+    transition: scale cubic-bezier(.65,.05,.36,1) .3s;
+}
+
+.logo-anim:hover {
+    scale: 1.1;
+}
