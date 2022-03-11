@@ -7,7 +7,7 @@ import { PasswordsComponent } from './passwords/passwords.component';
 
 const routes: Routes = [
   {
-    path: 'Home', component: HomeComponent 
+    path: '', component: HomeComponent 
   },
   {
     path:'Passwords',component: PasswordsComponent
