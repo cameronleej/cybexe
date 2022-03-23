@@ -1,3 +1,5 @@
 CHANGE LOG
 
-test
+Lab 8
+Changed the HTTP client to use the firebase client
+Deployed website!!!!
