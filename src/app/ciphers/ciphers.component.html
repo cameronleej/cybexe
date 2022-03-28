@@ -1,21 +1,25 @@
 
 
 <div class="container-fluid text-center justify-content-center">
-    <div id="rand">Caesar Cipher</div>
+  <div id="rand">Caesar Cipher</div>
 
-<div class="form-group">
+  <div class="form-group pt-4">
     <label for="exampleFormControlTextarea1">Plain Text</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="4"></textarea>
+    <input type="text"  style="width:50%; margin:auto;" id="inputText" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" #inputText>
+
   </div>
 
  <!-- Run button -->
  <div class="run button pt-4">
-    <button type="button" id="run" class="btn run-button shadow">ENCODE</button>
+    <button (click)="getText()" type="button" id="run" class="btn run-button shadow">ENCODE</button>
   </div>
 
 
   <div class="form-group pt-4">
     <label for="exampleFormControlTextarea1">Cipher Text</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="4" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." readonly></textarea>
+    <textarea  type="text" class="form-control textbox" id="exampleFormControlTextarea1" value="{{this.finalText}}" rows="7" #userinput readonly></textarea>
+    <button (click)="copyInputMessage(userinput)" type="button" class="btn copy shadow" value="click to copy" >Copy to clipboard</button>
+
   </div>
+
   </div>
