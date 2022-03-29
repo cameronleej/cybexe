@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InjectSetupWrapper } from '@angular/core/testing';
 
 @Component({
   selector: 'app-ciphers',
@@ -36,17 +37,37 @@ export class CiphersComponent implements OnInit {
 
 function cipherText(input: string) {
   var myString = "";
-  var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+  var possible = "abcdefghijklmnopqrstuvwxyz";
+  var shift = 3/// ADD USER INPUT 
+  var currChar = "";
 
 
   // TODO IMPLEMENT ACTUAL CAESAR CIPHER algorithm
-  for (var i = 0; i < input.length; i++)
-    if(input.charAt(i) != " "){
-     myString += possible.charAt(Math.floor(Math.random() * possible.length));
+  for (var i = 0; i < input.length; i++){
+    var upperFlag = false;
+    var currChar = input.charAt(i)
+    
+    if(currChar != " "){//making sure to skip spaces from the user
+      if(currChar == currChar.toUpperCase()){
+        upperFlag = true;
+      }
+      var newIndex = possible.indexOf(currChar.toLowerCase()) + shift;
+
+      if(newIndex >= possible.length){
+        var temp = newIndex - possible.length //geting the overflow length to circle back to the front
+        newIndex = temp //settting the index
+      }
+
+      var newLetter = possible.charAt(newIndex)
+      
+      if(upperFlag){ newLetter = newLetter.toUpperCase()};//if the upper flag was set, change the value to upper case
+
+      myString += newLetter;//append new letter
+
     }else{
       myString+=" "
     }
-
+  }
 
   return myString
 }
