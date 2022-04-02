@@ -18,8 +18,10 @@ export class CiphersComponent implements OnInit {
   }
     getText(){
       var input = (<HTMLInputElement>document.getElementById("inputText")).value;
+      var skips = parseInt((<HTMLInputElement>document.getElementById("inputSkips")).value);
+
       console.log(input)
-      var cipheredInput = cipherText(input)
+      var cipheredInput = cipherText(input,skips)
       console.log(cipheredInput)
 
       this.finalText = cipheredInput;
@@ -35,10 +37,11 @@ export class CiphersComponent implements OnInit {
 }
 
 
-function cipherText(input: string) {
+function cipherText(input: string, skips: number) {
   var myString = "";
   var possible = "abcdefghijklmnopqrstuvwxyz";
-  var shift = 3/// ADD USER INPUT 
+
+  var shift = skips/// ADD USER INPUT 
   var currChar = "";
 
 
@@ -46,27 +49,28 @@ function cipherText(input: string) {
   for (var i = 0; i < input.length; i++){
     var upperFlag = false;
     var currChar = input.charAt(i)
-    
-    if(currChar != " "){//making sure to skip spaces from the user
-      if(currChar == currChar.toUpperCase()){
-        upperFlag = true;
-      }
-      var newIndex = possible.indexOf(currChar.toLowerCase()) + shift;
 
-      if(newIndex >= possible.length){
-        var temp = newIndex - possible.length //geting the overflow length to circle back to the front
-        newIndex = temp //settting the index
-      }
-
-      var newLetter = possible.charAt(newIndex)
-      
-      if(upperFlag){ newLetter = newLetter.toUpperCase()};//if the upper flag was set, change the value to upper case
-
-      myString += newLetter;//append new letter
-
+    if(!possible.includes(currChar.toLowerCase())){
+      myString+=currChar
     }else{
-      myString+=" "
+      if(currChar != " "){//making sure to skip spaces from the user
+        if(currChar == currChar.toUpperCase()){
+          upperFlag = true;
+        }
+        var newIndex = (possible.indexOf(currChar.toLowerCase()) + shift)%26;
+        
+        var newLetter = possible.charAt(newIndex)
+        
+        if(upperFlag){ newLetter = newLetter.toUpperCase()};//if the upper flag was set, change the value to upper case
+  
+        myString += newLetter;//append new letter
+  
+      }else{
+        myString+=" "
+      }
     }
+    
+   
   }
 
   return myString

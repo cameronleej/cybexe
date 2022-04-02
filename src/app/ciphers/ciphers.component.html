@@ -1,8 +1,21 @@
 
 
 <div class="container-fluid text-center justify-content-center">
-  <div id="rand">Caesar Cipher</div>
+  <div id="rand">What is a Caesar Cipher?</div>
 
+  <div class="row">
+    <div class="col-3" style="margin: auto;">
+ 
+      <p>A Caesar cipher is a simple method of encoding messages. Caesar ciphers use a substitution method where letters in the alphabet are shifted by some 
+        fixed number of spaces to yield an encoding alphabet. A Caesar cipher with a shift of 3 would encode an A as a D, an M as a P, and a Z as a C, and so on. 
+        The method is named after Roman leader Julius Caesar, who used it in his private correspondence.</p>
+        <p>See <a href="https://brilliant.org/wiki/caesar-cipher/#using-a-caesar-cipher" target="_blank" rel="noopener noreferrer">brilliant.org</a> for more</p>
+      </div>
+  </div>
+  <div class="form-group pt-4">
+    <label for="exampleFormControlTextarea1">Generally, Caesar Ciphers have a <i>k</i> number of shifts</label>
+    <input type="number" min="1" max="100" id="inputSkips" style="width:10%; margin:auto;" class="form-control input-custom" placeholder="# of shifts" #inputSkips>
+  </div>
 
   <div class="form-group pt-4">
     <label for="exampleFormControlTextarea1">Plain Text</label>
@@ -10,13 +23,15 @@
 
   </div>
 
+  
+
  <!-- Run button -->
  <div class="run button pt-4">
     <button (click)="getText()" type="button" id="run" class="btn run-button shadow">ENCODE</button>
   </div>
 
 
-  <div class="form-group pt-4">
+  <div class="form-group pt-4 pb-4">
     <label for="exampleFormControlTextarea1">Cipher Text</label>
     <textarea  type="text" class="form-control textbox" id="exampleFormControlTextarea1" value="{{this.finalText}}" rows="7" #userinput readonly></textarea>
     <button (click)="copyInputMessage(userinput)" type="button" class="btn copy shadow" value="click to copy" >Copy to clipboard</button>
@@ -24,16 +39,6 @@
 
 
     <hr>
-    <div id="rand">What is a Caesar Cipher?</div>
-
-      <div class="row">
-        <div class="col-3" style="margin: auto;">
-     
-          <p>A Caesar cipher is a simple method of encoding messages. Caesar ciphers use a substitution method where letters in the alphabet are shifted by some 
-            fixed number of spaces to yield an encoding alphabet. A Caesar cipher with a shift of 3 would encode an A as a D, an M as a P, and a Z as a C, and so on. 
-            The method is named after Roman leader Julius Caesar, who used it in his private correspondence.</p>
-            <p>See <a href="https://brilliant.org/wiki/caesar-cipher/#using-a-caesar-cipher" target="_blank" rel="noopener noreferrer">brilliant.org</a> for more</p>
-          </div>
-      </div>
+   
   
   </div>
