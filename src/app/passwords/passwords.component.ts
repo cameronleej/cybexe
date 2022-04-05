@@ -31,6 +31,14 @@ export class PasswordsComponent implements OnInit {
 
     this.myStrength = testStrength(myPass);
   }
+  showPass(){
+  var x = (<HTMLInputElement>document.getElementById("passInput"));
+  if (x.type == "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+  }
 
 }
 

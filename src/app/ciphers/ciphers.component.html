@@ -1,12 +1,13 @@
 
 
-<div class="container-fluid text-center justify-content-center">
+
+<div class="container-fluid text-center mt-3 rounded shadow col-6 justify-content-center">
   <div id="rand">What is a Caesar Cipher?</div>
 
   <div class="row">
-    <div class="col-3" style="margin: auto;">
+    <div class="col-6" style="margin: auto; text-align: left;">
  
-      <p>A Caesar cipher is a simple method of encoding messages. Caesar ciphers use a substitution method where letters in the alphabet are shifted by some 
+      <p style="font-size: 15px;">A Caesar cipher is a simple method of encoding messages. Caesar ciphers use a substitution method where letters in the alphabet are shifted by some 
         fixed number of spaces to yield an encoding alphabet. A Caesar cipher with a shift of 3 would encode an A as a D, an M as a P, and a Z as a C, and so on. 
         The method is named after Roman leader Julius Caesar, who used it in his private correspondence.</p>
         <p>See <a href="https://brilliant.org/wiki/caesar-cipher/#using-a-caesar-cipher" target="_blank" rel="noopener noreferrer">brilliant.org</a> for more</p>
@@ -33,8 +34,8 @@
 
   <div class="form-group pt-4 pb-4">
     <label for="exampleFormControlTextarea1">Cipher Text</label>
-    <textarea  type="text" class="form-control textbox" id="exampleFormControlTextarea1" value="{{this.finalText}}" rows="7" #userinput readonly></textarea>
-    <button (click)="copyInputMessage(userinput)" type="button" class="btn copy shadow" value="click to copy" >Copy to clipboard</button>
+    <textarea  type="text" class="form-control textbox mb-3" id="exampleFormControlTextarea1" value="{{this.finalText}}" rows="3" #userinput readonly></textarea>
+    <button (click)="copyInputMessage(userinput)" type="button" class="btn copy rounded shadow" value="click to copy" >Copy</button>
   </div>
 
 
@@ -42,3 +43,4 @@
    
   
   </div>
+
