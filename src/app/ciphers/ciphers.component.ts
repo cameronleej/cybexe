@@ -42,6 +42,10 @@ function cipherText(input: string, skips: number) {
   var possible = "abcdefghijklmnopqrstuvwxyz";
 
   var shift = skips/// ADD USER INPUT 
+  
+  if(isNaN(skips)){
+    shift = 0;
+  }
   var currChar = "";
 
 
