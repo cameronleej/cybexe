@@ -6,14 +6,30 @@
 .btn-custom {
     color: #2c2c2c;
 }
-
+.textbox{
+    width: 50%;
+    margin: auto;
+    height: 10rem;
+}
+.information{
+    margin: auto;
+    text-align: center;
+}
+.copy{ 
+    background-image: linear-gradient(#83adb5, #5b787e);
+    font-size: 10pt;
+    font-weight: 700;
+    color: rgb(43, 42, 42);
+    height: 3.5rem;
+    width: 6%;
+}
 .run-button {
     background-image: linear-gradient(#83adb5, #5b787e);
     font-size: 20pt;
     font-weight: 700;
     color: rgb(43, 42, 42);
-    height: 5rem;
-    width: 50%;
+    height: 6rem;
+    width: 35%;
     transition: transform cubic-bezier(.68,-0.55,.59,3.32) .3s;
 }
 
@@ -22,7 +38,7 @@
     font-size: 20pt;
     font-weight: 700;
     color: rgb(43, 42, 42);
-    height: 5rem;
-    width: 50%;
+    height:6rem;
+    width: 35%;
     transform: translatey(-6px);
 }

@@ -1,3 +1,5 @@
 CHANGE LOG
 
-test
+cipher:
+
+    cleaned up the cipher page, and implemented methods to call, and return the ciphered text from the user
