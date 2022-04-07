@@ -16,6 +16,7 @@ export class CiphersComponent implements OnInit {
   ngOnInit(): void {
    
   }
+    //this method is called to capture the values of the users text, and number of skips
     getText(){
       var input = (<HTMLInputElement>document.getElementById("inputText")).value;
       var skips = parseInt((<HTMLInputElement>document.getElementById("inputSkips")).value);
@@ -41,9 +42,10 @@ function cipherText(input: string, skips: number) {
   var myString = "";
   var possible = "abcdefghijklmnopqrstuvwxyz";
 
-  var shift = skips/// ADD USER INPUT 
+  var shift = skips
   
   if(isNaN(skips)){
+    //sets the shift to 0 if the user did not input a number of skips
     shift = 0;
   }
   var currChar = "";
@@ -52,10 +54,10 @@ function cipherText(input: string, skips: number) {
   // TODO IMPLEMENT ACTUAL CAESAR CIPHER algorithm
   for (var i = 0; i < input.length; i++){
     var upperFlag = false;
-    var currChar = input.charAt(i)
+    var currChar = input.charAt(i);
 
     if(!possible.includes(currChar.toLowerCase())){
-      myString+=currChar
+      myString+=currChar//appends any special characters to the string
     }else{
       if(currChar != " "){//making sure to skip spaces from the user
         if(currChar == currChar.toUpperCase()){

@@ -17,6 +17,7 @@ export class PasswordsComponent implements OnInit {
 
   }
 
+  //method called to capture the number of characters and create a random password
   generatePass() {
     //capture the inputed number of characters by the user
     var numChars = parseInt((<HTMLInputElement>document.getElementById("inputChars")).value);
@@ -48,8 +49,11 @@ function randomPass(numChars: number) {
   var result = "";
   var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$&?%";
   var charactersLength = characters.length;
+  //looping through the length specified 
   for (var i = 0; i < numChars; i++) {
     result += characters.charAt(Math.floor(Math.random() * charactersLength));
+    //this line appends a random character from the list of usable characters 
+    //and appends it to the resulting string
   }
   return result;
 }
@@ -63,6 +67,7 @@ function testStrength(password: string){
   var specialScore = 0;
   var digitScore = 0;
 
+  //this calculates the strength of an inputted password based on whether or not a character matches each type
   for (var i = 0; i < password.length; i++) {
     if (password.charAt(i).match(/[ABCDEFGHIJKLMNOPQRSTUVWXYZ]/)) {
       upperScore++;
@@ -75,12 +80,15 @@ function testStrength(password: string){
     }
   }
 
+  //these are the score multipliers that are used to calculate the weight of each 
+  //type of character
   upperScore = upperScore * 0.1;
   lowerScore = lowerScore * 0.1;
   specialScore = specialScore * 0.4;
   digitScore = digitScore * 0.2;
   lengthScore = lengthScore * 0.3;
 
+  //the final score is each each score with it's multiplier added together
   var fullScore = lengthScore + upperScore + lowerScore + specialScore + digitScore;
 
   if(fullScore <= 3){
