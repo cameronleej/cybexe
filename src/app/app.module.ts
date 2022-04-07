@@ -9,6 +9,8 @@ import { PasswordsComponent } from './passwords/passwords.component';
 import { CiphersComponent } from './ciphers/ciphers.component';
 import { InfoComponent } from './info/info.component';
 import { AboutComponent } from './about/about.component';
+import { CameronComponent } from './cameron/cameron.component';
+import { TomComponent } from './tom/tom.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { AboutComponent } from './about/about.component';
     PasswordsComponent,
     CiphersComponent,
     InfoComponent,
-    AboutComponent
+    AboutComponent,
+    CameronComponent,
+    TomComponent
   ],
   imports: [
     BrowserModule,
