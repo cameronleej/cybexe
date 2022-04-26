@@ -1,2 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
-
+html{
+    background-image: radial-gradient(#5e3c58, #4b3247);
+    height: 100vh;
+    background-size: cover 100%;
+    min-height: 100%;
+    font-family: 'Play', sans-serif ;
+    color: #bfb5b2;
+}
