@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './about/about.component';
 import { CameronComponent } from './cameron/cameron.component';
 import { CiphersComponent } from './ciphers/ciphers.component';
+import { DylanComponent } from './dylan/dylan.component';
 import { HomeComponent } from './home/home.component';
 import { InfoComponent } from './info/info.component';
 import { PasswordsComponent } from './passwords/passwords.component';
@@ -11,9 +12,6 @@ import { TomComponent } from './tom/tom.component';
 const routes: Routes = [
   {
     path: '', component: HomeComponent 
-  },
-  {
-    path: 'Home', component: HomeComponent 
   },
   {
     path:'Passwords',component: PasswordsComponent
@@ -28,10 +26,13 @@ const routes: Routes = [
     path:'About', component: AboutComponent
   },
   {
-    path:'Cameron',component: CameronComponent
+    path:'About/Cameron',component: CameronComponent
   },
   {
-    path:'Tom',component: TomComponent
+    path:'About/Tom',component: TomComponent
+  },
+  {
+    path:'About/Dylan',component:DylanComponent
   }
 ];
 
