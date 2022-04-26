@@ -1,4 +1,4 @@
-class Device{
+export class Device{
     level: string = "";
     defScore: number =0;
     recScore: number= 0; //Ability to recover infected device

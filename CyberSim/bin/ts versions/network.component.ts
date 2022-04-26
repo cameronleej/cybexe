@@ -1,4 +1,6 @@
-class Network{
+import { Device } from "./device.component";
+
+export class Network{
     devices: Device[] = [];
    
     

@@ -1,4 +1,7 @@
-class AttackInstance{
+import { Network } from "./network.component";
+import { Malware } from "./malware.component";
+
+export class AttackInstance{
 
     THRESHOLD:number = 0.65;
 	deviceCount: number = 0;
