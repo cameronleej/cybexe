@@ -1,12 +1,12 @@
 class Simulation{
-    runData: (number[])[];
-	avgData: number[]; //originally object array
-    fullBreach: number[];
-    runTime: number[];
-	penetration: number[];
-	recovery: number[];
-    malSpecs: string[];
-    netSpecs:(number|string)[];
+    runData: (number[])[] = [];
+	avgData: number[] = []; //originally object array
+    fullBreach: number[] = [];
+    runTime: number[] = [];
+	penetration: number[] = [];
+	recovery: number[] = [];
+    malSpecs: string[] = [];
+    netSpecs:(number|string)[] = [];
     constructor(runSpecs:(number|string)[]){
 
         var type:string = String(runSpecs[0]);
@@ -54,7 +54,7 @@ class Simulation{
 		if(this.recovery.length!=0)
         this.avgData.push(this.percent(this.Average(this.recovery)));
 		else
-        this.avgData.push(null);
+        this.avgData.push(-1);
 		
 		return this.avgData;
 	}

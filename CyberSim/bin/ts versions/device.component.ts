@@ -1,11 +1,11 @@
 class Device{
-    level: string;
-    defScore: number;
-    recScore: number;; //Ability to recover infected device
+    level: string = "";
+    defScore: number =0;
+    recScore: number= 0; //Ability to recover infected device
     infected: boolean = false;
     recovered: boolean = false;
 
-    constructor(level){
+    constructor(level:string){
         this.level = level;
         this.defScore = this.defLevel(level);
         this.recScore = this.recLevel(level);
