@@ -12,6 +12,7 @@ import { AboutComponent } from './about/about.component';
 import { CameronComponent } from './cameron/cameron.component';
 import { TomComponent } from './tom/tom.component';
 import { DylanComponent } from './dylan/dylan.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,11 +25,12 @@ import { DylanComponent } from './dylan/dylan.component';
     AboutComponent,
     CameronComponent,
     TomComponent,
-    DylanComponent
+    DylanComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

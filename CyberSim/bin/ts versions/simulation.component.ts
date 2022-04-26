@@ -1,4 +1,6 @@
-class Simulation{
+import { AttackInstance } from "./AttackInstance.component";
+
+export class Simulation{
     runData: (number[])[] = [];
 	avgData: number[] = []; //originally object array
     fullBreach: number[] = [];
