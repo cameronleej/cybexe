@@ -1,22 +1,22 @@
 class AttackInstance{
 
     THRESHOLD:number = 0.65;
-	deviceCount: number;
-	devicesBreached: number;
-	initialInfection: number;
-	recCount: number;
-	malwareSpecs: (string|number)[];
+	deviceCount: number = 0;
+	devicesBreached: number = 0;
+	initialInfection: number = 0;
+	recCount: number = 0;
+	malwareSpecs: string[];
 	networkSpecs: (string|number)[];
-    results: number[];
+    results:number[] = [];
 
-    constructor(malSpecs, netSpecs) {
+    constructor(malSpecs:string[], netSpecs:(number|string)[]) {
         this.malwareSpecs = malSpecs;
         this.networkSpecs = netSpecs;
     }
 
     execute(){
         this.devicesBreached = 0;
-        var results: number[];
+        
         
         //creates network with specified number of devices and device security level
 		let network = new Network(this.networkSpecs);
@@ -43,7 +43,7 @@ class AttackInstance{
                 break;
             }
 
-			 var initialInfection = network.countInfected();
+            this.initialInfection = network.countInfected();
              
 			//attempt to recover all infected devices
             for(let machine of network.infectedNodes()) {
@@ -58,22 +58,22 @@ class AttackInstance{
 
 		//Calculates proportion of devices in network that were breached
 		var penetration = this.devicesBreached/this.deviceCount;
-		results.push(penetration);
+		this.results.push(penetration);
 
         
 		//If all devices were breached, return 1.0, else 0.0
 	if(devicesBreached == deviceCount)
-        results.push(1.0);
+    this.results.push(1.0);
     else
-        results.push(0.0);
+    this.results.push(0.0);
     
     //Add random runtime to stop virus / infect all devices
-    results.push(Math.random()*(initialInfection+network.countRecovered())*24);
+    this.results.push(Math.random()*(this.initialInfection+network.countRecovered())*24);
 
-    if(initialInfection != 0){
-        var percentRecovered = network.countRecovered()/initialInfection;
-        results.push(percentRecovered);
+    if(this.initialInfection != 0){
+        var percentRecovered = network.countRecovered()/this.initialInfection;
+        this.results.push(percentRecovered);
     }
-    return results;
+    return this.results;
     }
 }
