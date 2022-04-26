@@ -11,6 +11,7 @@ import { InfoComponent } from './info/info.component';
 import { AboutComponent } from './about/about.component';
 import { CameronComponent } from './cameron/cameron.component';
 import { TomComponent } from './tom/tom.component';
+import { DylanComponent } from './dylan/dylan.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { TomComponent } from './tom/tom.component';
     InfoComponent,
     AboutComponent,
     CameronComponent,
-    TomComponent
+    TomComponent,
+    DylanComponent
   ],
   imports: [
     BrowserModule,
