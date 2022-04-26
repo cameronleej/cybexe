@@ -77,6 +77,8 @@ export class AttackInstance{
         var percentRecovered = network.countRecovered()/this.initialInfection;
         this.results.push(percentRecovered);
     }
+    
+    //penetration: infected/count,  all devices breached?(1 or 0), time: semi-random, recovered: recovered/infected
     return this.results;
     }
 }

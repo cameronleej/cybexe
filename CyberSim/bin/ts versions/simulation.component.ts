@@ -37,15 +37,18 @@ export class Simulation{
 			
 		}
 		
+		console.log(this.penetration);
+
 		//Calculates probability of full breach, average runtime, and average % breach
 		this.avgData.push(this.percent(this.Average(this.penetration)));
-		this.avgData.push(Math.round(this.Average(this.runTime)));
 		this.avgData.push(this.percent(this.Average(this.fullBreach)));
+		this.avgData.push(Math.round(this.Average(this.runTime)));
 		if(this.recovery.length!=0)
         this.avgData.push(this.percent(this.Average(this.recovery)));
 		else
         this.avgData.push(-1);
 		
+		//penetration: infected/count,  all devices breached?(1 or 0), time: semi-random, recovered: recovered/infected
 		return this.avgData;
 	}
 	
