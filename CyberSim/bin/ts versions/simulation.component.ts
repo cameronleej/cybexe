@@ -37,7 +37,7 @@ export class Simulation{
 			
 		}
 		
-		console.log(this.penetration);
+		console.log("Penetration: " + this.penetration);
 
 		//Calculates probability of full breach, average runtime, and average % breach
 		this.avgData.push(this.percent(this.Average(this.penetration)));
