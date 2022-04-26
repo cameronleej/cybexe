@@ -9,27 +9,15 @@ class Simulation{
     netSpecs:(number|string)[] = [];
     constructor(runSpecs:(number|string)[]){
 
-        var type:string = String(runSpecs[0]);
+        this.malSpecs.push(String(runSpecs[0]));
+        this.malSpecs.push(String(runSpecs[1]));
 
-        this.malSpecs.push(type);
-
-
-        var atkLevel:string = String(runSpecs[1]);
-
-        this.malSpecs.push(atkLevel);
-
-        var defLevel:string = String(runSpecs[2]);
-
-        this.netSpecs.push(defLevel);
-
-        var nodeCount:number = Number(runSpecs[3]);
-
-        this.netSpecs.push(nodeCount);
+        this.netSpecs.push(String(runSpecs[2]));
+        this.netSpecs.push(String(runSpecs[3]));
 
     }
 
     run(){
-		
 		//Runs 20 trials, placing each list of results into a nested list
 		for(let i = 0; i<20; i++) {
 			let attack = new AttackInstance(this.malSpecs, this.netSpecs);
