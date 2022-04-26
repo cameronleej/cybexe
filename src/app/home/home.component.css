@@ -15,6 +15,7 @@
     color: rgb(62, 64, 66);
     background-image:linear-gradient(#c7bbc9, #948a96);
     border-color: rgb(36, 35, 35);
+    border-width: 1px;
 }
 
 .input-custom-2 {
