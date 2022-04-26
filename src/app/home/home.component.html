@@ -10,29 +10,35 @@
         <input type="number" id="nodes" min="1" max="100" class="form-control input-custom" placeholder="number of nodes">
       </div>
 
-      <div class="dropdown px-3 mb-3">
-        <button class="btn btn-secondary dropdown-toggle input-custom" type="button" id="dropdownMenuButton"
-          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Malware Type
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="#">Trojan</a>
-          <a class="dropdown-item" href="#">Ransomware</a>
-          <a class="dropdown-item" href="#">Virus</a>
-          <a class="dropdown-item" href="#">Worm</a>
-        </div>
+      <div class="px-3 mb-3 ">
+        <img class="mx-2" src="assets\virus.png" alt="" height="20">
+        <select class="input-custom rounded p-2" aria-label="Default select example">
+          <option selected>Malware Type</option>
+          <option value="1">Trojan</option>
+          <option value="2">Ransomware</option>
+          <option value="3">Virus</option>
+          <option value="3">Worm</option>
+        </select>
       </div>
 
-      <div class="dropdown px-3 mb-3">
-        <button class="btn btn-secondary dropdown-toggle input-custom" type="button" id="dropdownMenuButton"
-          data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Security Level
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-          <a class="dropdown-item" href="#">Low</a>
-          <a class="dropdown-item" href="#">Medium</a>
-          <a class="dropdown-item" href="#">High</a>
-        </div>
+      <div class="px-3 mb-3 ">
+        <img class="mx-2" src="assets\swords.png" alt="" height="20">
+        <select class="input-custom rounded p-2" aria-label="Default select example">
+          <option selected>Malware Level</option>
+          <option value="1">Low</option>
+          <option value="2">Med</option>
+          <option value="3">High</option>
+        </select>
+      </div>
+
+      <div class="px-3 mb-3 ">
+        <img class="mx-2" src="assets\shield.png" alt="" height="20">
+        <select class="input-custom rounded p-2" aria-label="Default select example">
+          <option selected>Security Level</option>
+          <option value="1">Low</option>
+          <option value="2">Med</option>
+          <option value="3">High</option>
+        </select>
       </div>
 
     </div>
