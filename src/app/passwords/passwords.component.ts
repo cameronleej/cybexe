@@ -91,11 +91,11 @@ function testStrength(password: string){
   //the final score is each each score with it's multiplier added together
   var fullScore = lengthScore + upperScore + lowerScore + specialScore + digitScore;
 
-  if(fullScore <= 3){
+  if(fullScore <= 4){
     return "low";
-  }else if(fullScore > 3 && fullScore <= 7){
+  }else if(fullScore > 4 && fullScore <= 8){
     return "med";
-  }else if(fullScore > 7){
+  }else if(fullScore > 8){
     return "high";
   }else{
     return "na"
