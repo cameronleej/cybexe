@@ -4,8 +4,7 @@ import { Malware } from "./malware.component";
 export class AttackInstance{
 
     THRESHOLD:number = 0.65;
-	deviceCount: number = 0;
-	devicesBreached: number = 0;
+	
 	initialInfection: number = 0;
 	recCount: number = 0;
 	malwareSpecs: string[];
@@ -18,9 +17,7 @@ export class AttackInstance{
     }
 
     execute(){
-        this.devicesBreached = 0;
-        
-        
+       
         //creates network with specified number of devices and device security level
 		let network = new Network(this.networkSpecs);
 		//creates malware of specified type with appropriate strength
@@ -59,8 +56,10 @@ export class AttackInstance{
         var devicesBreached:number = network.countInfected();
 		var deviceCount:number = network.getNodes().length;
 
+            devicesBreached = 5;
+            deviceCount = 7;
 		//Calculates proportion of devices in network that were breached
-		var penetration:number = this.devicesBreached/this.deviceCount;
+		var penetration:number = devicesBreached/deviceCount;
 		this.results.push(penetration);
 
         console.log("penetration = " + penetration);
