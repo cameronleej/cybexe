@@ -56,12 +56,14 @@ export class AttackInstance{
 
 		}
 	
-        var devicesBreached = network.countInfected();
-		var deviceCount = network.getNodes().length;
+        var devicesBreached:number = network.countInfected();
+		var deviceCount:number = network.getNodes().length;
 
 		//Calculates proportion of devices in network that were breached
-		var penetration = this.devicesBreached/this.deviceCount;
+		var penetration:number = this.devicesBreached/this.deviceCount;
 		this.results.push(penetration);
+
+        console.log("penetration = " + penetration);
 
         
 		//If all devices were breached, return 1.0, else 0.0

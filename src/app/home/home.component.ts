@@ -40,9 +40,9 @@ export class HomeComponent implements OnInit {
     var results = sim.run();
 
     console.log("percent of devices infected: " + results[0]);
-    console.log("Percent where the entire netowrk was compromised: " + results[2]);
-    console.log("Estimated run-time: " + results[1]);
-    console.log("percent of infected devices that recovered: " + results[4]);
+    console.log("Percent where the entire netowrk was compromised: " + results[1]);
+    console.log("Estimated run-time: " + results[2]);
+    console.log("percent of infected devices that recovered: " + results[3]);
 
     return results;
   }
