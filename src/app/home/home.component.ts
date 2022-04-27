@@ -13,6 +13,11 @@ export class HomeComponent implements OnInit {
   malwareType! : string;
   malwareLevel! : string;
   nodeLevel! : string;
+  //these are for printing to webpage purposes
+  devicesInfected!:number;
+  networkComp!:number;
+  runTime!:number;
+  recovered!:number;
 
   constructor() { }
 
@@ -44,7 +49,14 @@ export class HomeComponent implements OnInit {
     console.log("Estimated run-time: " + results[2]);
     console.log("percent of infected devices that recovered: " + results[3]);
 
+
+    //setting the variables to the corresponding values
+    this.devicesInfected = results[0];
+    this.networkComp = results[1];
+    this.runTime = results[2];
+    this.recovered = results[3];
     return results;
   }
 
+  
 }
