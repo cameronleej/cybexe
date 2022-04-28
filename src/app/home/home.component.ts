@@ -18,6 +18,7 @@ export class HomeComponent implements OnInit {
   networkComp!:number;
   runTime!:number;
   recovered!:number;
+  secLevel!:string;
 
   malwareResponse!:string;
   malLevelResponse!:string;
@@ -37,6 +38,8 @@ export class HomeComponent implements OnInit {
     var malwareLevel = (<HTMLInputElement>document.getElementById("malLevel")).value;
     var deviceLevel = (<HTMLInputElement>document.getElementById("secLevel")).value;
     var numberOfNodes = parseInt((<HTMLInputElement>document.getElementById("nodes")).value);
+
+    this.secLevel = deviceLevel;
 
     console.log(malwareType);
     console.log(malwareLevel);
@@ -71,7 +74,8 @@ export class HomeComponent implements OnInit {
 
     this.malwareLevel = malwareLevel;
     this.malLevelResponse = this.printMalwareLevel(malwareLevel);
-
+    
+    this.securityResponse = this.printSecurityLevel(deviceLevel);
 
     return results;
   }
@@ -90,9 +94,7 @@ export class HomeComponent implements OnInit {
                 it will steal information, disrupt, or even destroy your computer.`
       case "ransomware":
         return `Ransomware is a type of malware that when executed stops, freezes, or blocks off access
-                to your computer until money or something value to the hacker, is given up. This is 
-                special because of the hackers intentions, sometimes they have different motives than just 
-                breaking the device.`
+                to your computer until money or something value to the hacker, is given up.`
       case "worm":
         return `A Worm in computer terms is a type of Trojan Horse that replicates itself to step through a 
                 computer or systems network. These types of malware are used to steal data, remove usage of hard drive space, 
@@ -118,11 +120,26 @@ export class HomeComponent implements OnInit {
       default:
         return "Malware Level not given"
     }
-
-
-
   }
 
+  printSecurityLevel(level:string):string{
+    level = level.toLowerCase();
+    switch(level){
+      case "low":
+        return `A low level of device security mean there is no anti-virus software on the device,
+                and it runs a HIGH risk of being attacked leaving the network vulnerable to 
+                various types of malware. `
+      case "med":
+        return `A medium level of security means that the network has some security measures in place, like a software
+                or data encryption, but still having some vulnerabilities.`
+      case "high":
+        return `A high level of security means that the defenses on the network are strong, and can easily detect
+                any type of malware and defend itself. High levels of security are difficult to be penetrated,
+                and rarely encounter infection.`
+      default:
+        return "Security Level not given"
+    }
+  }
 
   
 }

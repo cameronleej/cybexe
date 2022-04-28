@@ -83,15 +83,18 @@
 
               <!-- bottom half of middle -->
               <div class="d-flex flex-row p-3 pt-1" style="height: 40%;">
-                <div class="col middle-section rounded p-2">
-                  <span>Information:</span>
+                <div class="col middle-section rounded p-3">
                   <p><img class="mx-2" src="assets\virus.png" alt="" height="20">
-                    <b>{{this.malwareType}}</b>: {{this.malwareResponse}}
+                    <b>{{this.malwareType}} Malware</b>: {{this.malwareResponse}}
                 </p>
                 <hr>
                 <p><img class="mx-2" src="assets\swords.png" alt="" height="20">
                   <b>{{this.malwareLevel}} Level of Attack</b>: {{this.malLevelResponse}}
               </p>
+              <hr>
+              <p class="pb-3"><img class="mx-2" src="assets\shield.png" alt="" height="20">
+                <b>{{this.secLevel}} Level of Defense</b>: {{this.securityResponse}}
+            </p>
               
                 </div>
               </div>
