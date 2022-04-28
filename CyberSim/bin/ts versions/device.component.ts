@@ -33,12 +33,13 @@ export class Device{
     }
 
     defLevel(level:string){
+        //console.log(level);
         switch(level.toLowerCase()) { // orignally 50->75->100
-			case "low": this.defScore =  45 + Math.random()*15; // 45-60
+			case "low": this.defScore =  30 + Math.random()*20; // 30-50
 				break;
-			case "moderate": this.defScore = 60 + Math.random()*15; // 60-75
+			case "med": this.defScore = 45 + Math.random()*30; // 45-75
 				break;
-			case "high": this.defScore = 80 + Math.random()*15; // 80-95
+			case "high": this.defScore =  70 + Math.random()*20; // 70-90
 				break;
 			default: 
 				return -1;
@@ -49,11 +50,11 @@ export class Device{
     recLevel(level:string) {
 		
 		switch(level.toLowerCase()) {
-			case "low": this.recScore =  45 + Math.random()*15; // 45-60
+			case "low": this.recScore =  30 + Math.random()*15; // 30-45
 				break;
-			case "moderate": this.recScore = 60 + Math.random()*15; // 60-75
+			case "med": this.recScore = 50 + Math.random()*25; // 50-75
 				break;
-			case "high": this.recScore = 80 + Math.random()*15; // 80-95
+			case "high": this.recScore = 70 + Math.random()*20; // 70-90
 				break;
 			default: 
 				return -1;
