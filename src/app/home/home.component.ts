@@ -23,10 +23,6 @@ export class HomeComponent implements OnInit {
   malLevelResponse!:string;
   securityResponse!:string;
 
-  isVirus: string = `A Virus is an executable computer program that moves malicious code into the computer of its victims
-              , and spreads by repeating itself. These are one of the most common types of attacks, and preventing them
-              is difficult.`;
-  
   
 
   constructor() { }
@@ -64,7 +60,9 @@ export class HomeComponent implements OnInit {
     this.devicesInfected = results[0];
     this.networkComp = results[1];
     this.runTime = results[2];
+
     this.recovered = results[3];
+
 
 
     //this is used to print out the given parameters
@@ -72,6 +70,7 @@ export class HomeComponent implements OnInit {
     this.malwareResponse = this.printMalware(malwareType);
 
     this.malwareLevel = malwareLevel;
+    this.malLevelResponse = this.printMalwareLevel(malwareLevel);
 
 
     return results;
@@ -103,6 +102,27 @@ export class HomeComponent implements OnInit {
 
     }
   }
+
+  printMalwareLevel(level:string):string{
+    level = level.toLowerCase();
+    switch(level){
+      case "low":
+        return `A low level of attack is one where any computer is capable of fighting off. Mostly, it's up to 
+                the user to refrain from clicking a link, or an ad that contains the malware.`
+      case "med":
+        return `A medium level of attack is one where the computer or system is not as able to fight it off. 
+                This could be something that does a noticable amount of damage to a network.`
+      case "high":
+        return `A high level of attack is incredibly hard to fight off, and even the most experienced user 
+                of technology can be susceptible to this kind. These are often undetected, and destructive at their worst.`
+      default:
+        return "Malware Level not given"
+    }
+
+
+
+  }
+
 
   
 }
