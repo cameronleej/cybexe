@@ -64,7 +64,7 @@
           </div>
 
           <!-- Tall row containing the simulation -->
-          <div class="d-flex flex-row middle rounded shadow mt-5">
+          <div class="d-flex flex-row middle rounded shadow mt-5 ">
             <div class="col">
               <!-- Top half of middle -->
               <div class="d-flex flex-row p-3" style="height: 60%;">
@@ -82,7 +82,7 @@
               </div>
 
               <!-- bottom half of middle -->
-              <div class="d-flex flex-row p-3 pt-1" style="height: 40%;">
+              <div class="d-flex flex-row p-3 pt-1" style="height: 40%; font-size: 10pt;">
                 <div class="col middle-section rounded p-3">
                   <p><img class="mx-2" src="assets\virus.png" alt="" height="20">
                     <b>{{this.malwareType}} Malware</b>: {{this.malwareResponse}}
@@ -140,7 +140,7 @@
                   <div *ngIf="this.recovered == -1">
                     NA
                   </div>
-                  
+                  <hr>
 
                 </div>
               </div>
