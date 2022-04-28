@@ -82,9 +82,17 @@
               </div>
 
               <!-- bottom half of middle -->
-              <div class="d-flex flex-row p-3 pt-0" style="height: 40%;">
+              <div class="d-flex flex-row p-3 pt-1" style="height: 40%;">
                 <div class="col middle-section rounded p-2">
-                  <span>Information about the simulation that just ran</span>
+                  <span>Information:</span>
+                  <p><img class="mx-2" src="assets\virus.png" alt="" height="20">
+                    <b>{{this.malwareType}}</b>: {{this.malwareResponse}}
+                </p>
+                <hr>
+                <p><img class="mx-2" src="assets\swords.png" alt="" height="20">
+                  <b>{{this.malwareType}}</b>: {{this.malwareResponse}}
+              </p>
+              
                 </div>
               </div>
             </div>
