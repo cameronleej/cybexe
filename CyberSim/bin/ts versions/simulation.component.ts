@@ -21,7 +21,7 @@ export class Simulation{
 
     run(){
 		//Runs 20 trials, placing each list of results into a nested list
-		for(let i = 0; i<20; i++) {
+		for(let i = 0; i<30; i++) {
 			let attack = new AttackInstance(this.malSpecs, this.netSpecs);
 			this.runData.push(attack.execute());
 		}
@@ -37,7 +37,6 @@ export class Simulation{
 			
 		}
 		
-		console.log("Penetration: " + this.penetration);
 
 		//Calculates probability of full breach, average runtime, and average % breach
 		this.avgData.push(this.percent(this.Average(this.penetration)));
@@ -47,7 +46,7 @@ export class Simulation{
         this.avgData.push(this.percent(this.Average(this.recovery)));
 		else
         this.avgData.push(-1);
-		
+		console.log(this.recovery);
 		//penetration: infected/count,  all devices breached?(1 or 0), time: semi-random, recovered: recovered/infected
 		return this.avgData;
 	}
