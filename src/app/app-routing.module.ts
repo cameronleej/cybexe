@@ -4,6 +4,7 @@ import { AboutComponent } from './about/about.component';
 import { CameronComponent } from './cameron/cameron.component';
 import { CiphersComponent } from './ciphers/ciphers.component';
 import { DylanComponent } from './dylan/dylan.component';
+import { HaidaraComponent } from './haidara/haidara.component';
 import { HomeComponent } from './home/home.component';
 import { InfoComponent } from './info/info.component';
 import { PasswordsComponent } from './passwords/passwords.component';
@@ -33,6 +34,9 @@ const routes: Routes = [
   },
   {
     path:'About/Dylan',component:DylanComponent
+  },
+  {
+    path:'About/Haidara',component:HaidaraComponent
   }
 ];
 
