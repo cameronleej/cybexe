@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Simulation } from 'CyberSim/bin/ts versions/simulation.component';
+import { retry } from 'rxjs';
 
 
 @Component({
@@ -23,6 +24,8 @@ export class HomeComponent implements OnInit {
   malwareResponse!:string;
   malLevelResponse!:string;
   securityResponse!:string;
+  nestedCounter!: Array<number>;
+  rowNumber: number = 0;
 
   
 
@@ -88,6 +91,24 @@ export class HomeComponent implements OnInit {
     }
 
     return list;
+  }
+
+  nestedLoop(i: number) {
+    let counterArr = new Array(i);
+
+    for(let j = 0; j < i; j++){
+      counterArr[j] = "Placeholder";
+    }
+
+    return counterArr;
+  }
+
+  rowNumberInc() {
+    this.rowNumber++;
+
+    console.log(this.rowNumber);
+
+    return true;
   }
 
   //this method is called to set the value of the malware 
