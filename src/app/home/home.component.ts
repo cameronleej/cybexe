@@ -27,6 +27,8 @@ export class HomeComponent implements OnInit {
     var deviceLevel = (<HTMLInputElement>document.getElementById("secLevel")).value;
     var numberOfNodes = parseInt((<HTMLInputElement>document.getElementById("nodes")).value);
 
+    this.nodes = numberOfNodes;
+
     console.log(malwareType);
     console.log(malwareLevel);
     console.log(deviceLevel);
@@ -45,6 +47,16 @@ export class HomeComponent implements OnInit {
     console.log("percent of infected devices that recovered: " + results[4]);
 
     return results;
+  }
+
+  nodeList() {
+    let list = new Array(this.nodes);
+
+    for(let i = 0; i < this.nodes; i++) {
+      list[i] = i;
+    }
+
+    return list;
   }
 
 }
