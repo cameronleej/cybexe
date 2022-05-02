@@ -47,7 +47,6 @@ export class HomeComponent implements OnInit {
     console.log(deviceLevel);
     console.log(numberOfNodes);
 
-
     var args: (string|number)[] = [malwareType, malwareLevel, deviceLevel, numberOfNodes];
 
 
