@@ -7,7 +7,7 @@
         <span class="input-group-text input-custom-2" id="basic-addon1">
           <img src="assets\database.png" alt="" height="20">
         </span>
-        <input type="number" id="nodes" [(ngModel)]="nodes" min="1" max="100" class="form-control input-custom"
+        <input type="number" id="nodes" [(ngModel)]="nodes" min="1" max="30" class="form-control input-custom"
           placeholder="number of nodes">
       </div>
 
@@ -55,7 +55,8 @@
           <div class="d-flex flex-row my-2">
 
             <!--Reset button-->
-            <button type="button" style="font-size: 15pt;" class="btn run-button shadow" onClick="window.location.reload();">Reset</button>
+            <button type="button" style="font-size: 15pt;" class="btn run-button shadow"
+              onClick="window.location.reload();">Reset</button>
             <!-- This is only for spacing -->
             <div class="col-9"></div>
 
@@ -72,47 +73,59 @@
               <!-- Top half of middle -->
               <div class="d-flex flex-row p-3" style="height: 60%;">
                 <div class="col middle-section rounded p-2">
-
-                  <div *ngFor="let number of nodeList(); index as i">
-                    <div *ngIf="i >= this.rowNumber; then thenBlock else elseBlock"></div>
-
-                      <ng-template #thenBlock class="d-flex flex-row">
-
-                        <svg style="padding:3px;" xmlns="http://www.w3.org/2000/svg" width="40" height="40"
-                              fill="currentColor" class="bi bi-hdd-stack" viewBox="0 0 16 16">
+                  <div class="d-flex flex-row justify-content-center">
+                          <ng-container *ngFor="let number of nodeList();index as i">
+                              <svg style="padding:3px;" xmlns="http://www.w3.org/2000/svg" width="40" height="40"
+                              fill="grey" class="bi bi-hdd-stack" viewBox="0 0 16 16">
                               <path
                                 d="M14 10a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-1a1 1 0 0 1 1-1h12zM2 9a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-1a2 2 0 0 0-2-2H2z" />
                               <path
                                 d="M5 11.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm-2 0a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM14 3a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h12zM2 2a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2z" />
                               <path d="M5 4.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm-2 0a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z" />
-                            </svg>
+                            </svg>                            
+                       
 
-                      </ng-template>
 
-                      <ng-template #elseBlock>
+                      </ng-container>
+                        
+          
+                  </div>
+                  <div class="justify-content-center row m-5">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor" class="bi bi-arrow-bar-down" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M1 3.5a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13a.5.5 0 0 1-.5-.5zM8 6a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 0 1 .708-.708L7.5 12.293V6.5A.5.5 0 0 1 8 6z"/>
+                    </svg>
+                  </div>
 
-                        <svg style="padding:3px;" xmlns="http://www.w3.org/2000/svg" width="40" height="40"
-                              fill="currentColor" class="bi bi-hdd-stack" viewBox="0 0 16 16">
+                  <!--RETURNED NODES FROM SIMULATION-->
+                   <div class="d-flex flex-row justify-content-center">
+                          <ng-container *ngFor="let number of nodeList();index as i">
+                          <div *ngIf="i % 5 == 0; then thenBlock else elseBlock"></div>
+                          <ng-template #thenBlock>
+                              <svg style="padding:3px;" xmlns="http://www.w3.org/2000/svg" width="40" height="40"
+                              fill="green" class="bi bi-hdd-stack" viewBox="0 0 16 16">
                               <path
                                 d="M14 10a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-1a1 1 0 0 1 1-1h12zM2 9a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-1a2 2 0 0 0-2-2H2z" />
                               <path
                                 d="M5 11.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm-2 0a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM14 3a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h12zM2 2a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2z" />
                               <path d="M5 4.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm-2 0a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z" />
-                            </svg>
+                            </svg>                            
+                        </ng-template>
 
-                      </ng-template>
+                        <ng-template #elseBlock>
+                          <svg style="padding:3px;" xmlns="http://www.w3.org/2000/svg" width="40" height="40"
+                            fill="red" class="bi bi-hdd-stack" viewBox="0 0 16 16">
+                            <path
+                              d="M14 10a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1v-1a1 1 0 0 1 1-1h12zM2 9a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-1a2 2 0 0 0-2-2H2z" />
+                            <path
+                              d="M5 11.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm-2 0a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM14 3a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h12zM2 2a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2z" />
+                            <path d="M5 4.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm-2 0a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z" />
+                          </svg>
 
-                      <!-- <div *ngFor="let j of nestedLoop(this.rowNumber)"> -->
 
-                      
-
-                          <!-- </div> -->
-
-                    
-                        <!-- <div *ngFor="let nested of nestedLoop(i+1)"> -->
-
-                            
-                        <!-- </div> -->
+                        </ng-template>
+                      </ng-container>
+                        
+          
                   </div>
 
 
