@@ -126,7 +126,7 @@ export class HomeComponent implements OnInit {
       '<ul>'+
       '<li>Enter the number of nodes on the network.</li>'+
       '<li>Enter the type of malware you\'d like to test.</li>'+
-      '<li>Enter the \"level\" of malware. Basically, how cool it is.</li>'+
+      '<li>Enter the \"level\" of malware. Basically, how dangerous it is.</li>'+
       '<li>Enter the network\'s security level</li>'+
       '</ul>',
       icon: 'info',
