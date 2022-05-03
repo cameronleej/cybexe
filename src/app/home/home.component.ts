@@ -97,6 +97,7 @@ export class HomeComponent implements OnInit {
     var recov = (this.recovered/100)*this.nodes;
     var raw = (this.devicesInfected/100)*this.nodes;
     var real = raw - recov;
+    if(this.devicesInfected == 0)real = 0;
 
     return real;
   }
