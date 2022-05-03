@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -26,6 +27,15 @@ export class CiphersComponent implements OnInit {
       console.log(cipheredInput)
 
       this.finalText = cipheredInput;
+
+      // this code is for a fancy alert. Don't worry about it if you don't want to
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Text encoded!',
+      showConfirmButton: false,
+      timer: 1100
+    })
     }
     
      /* To copy Text from Textbox */
