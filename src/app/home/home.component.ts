@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Simulation } from 'CyberSim/bin/ts versions/simulation.component';
+import { retry } from 'rxjs';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -23,6 +25,7 @@ export class HomeComponent implements OnInit {
   malwareResponse!:string;
   malLevelResponse!:string;
   securityResponse!:string;
+  
 
   
 
@@ -39,13 +42,13 @@ export class HomeComponent implements OnInit {
     var deviceLevel = (<HTMLInputElement>document.getElementById("secLevel")).value;
     var numberOfNodes = parseInt((<HTMLInputElement>document.getElementById("nodes")).value);
 
+    this.nodes = numberOfNodes;
     this.secLevel = deviceLevel;
 
     console.log(malwareType);
     console.log(malwareLevel);
     console.log(deviceLevel);
     console.log(numberOfNodes);
-
 
     var args: (string|number)[] = [malwareType, malwareLevel, deviceLevel, numberOfNodes];
 
@@ -77,8 +80,60 @@ export class HomeComponent implements OnInit {
     
     this.securityResponse = this.printSecurityLevel(deviceLevel);
 
+
+    // this code is for a fancy alert. Don't worry about it if you don't want to
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Simulation has been run!',
+      showConfirmButton: false,
+      timer: 1100
+    })
+
     return results;
   }
+
+  nodeList() {
+    let list = new Array(this.nodes);
+
+    for(let i = 0; i < this.nodes; i++) {
+      list[i] = i;
+    }
+
+    return list;
+  }
+
+
+  actualInfected() {
+    var recov = (this.recovered/100)*this.nodes;
+    var raw = (this.devicesInfected/100)*this.nodes;
+    var real = raw - recov;
+    if(this.devicesInfected == 0)real = 0;
+
+    return real;
+  }
+
+  leftoverNodes() {
+    return this.nodes - this.actualInfected();
+  }
+ 
+  
+
+  helpAlert() {
+    Swal.fire({
+      title: 'Don\'t worry!',
+      html: 'This site is meant to run a very simple cybersecurity simulation based on parameters that you can enter on the sidebar. <br>'+
+      '<ul>'+
+      '<li>Enter the number of nodes on the network.</li>'+
+      '<li>Enter the type of malware you\'d like to test.</li>'+
+      '<li>Enter the \"level\" of malware. Basically, how cool it is.</li>'+
+      '<li>Enter the network\'s security level</li>'+
+      '</ul>',
+      icon: 'info',
+      confirmButtonColor: "#5b787e"
+    });
+  }
+
 
   //this method is called to set the value of the malware 
   //response in the information secion of the simulation
