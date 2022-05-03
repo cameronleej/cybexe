@@ -91,9 +91,21 @@ export class HomeComponent implements OnInit {
 
     return list;
   }
-  
 
+
+  actualInfected() {
+    var recov = (this.recovered/100)*this.nodes;
+    var raw = (this.devicesInfected/100)*this.nodes;
+    var real = raw - recov;
+
+    return real;
+  }
+
+  leftoverNodes() {
+    return this.nodes - this.actualInfected();
+  }
  
+
 
   //this method is called to set the value of the malware 
   //response in the information secion of the simulation
