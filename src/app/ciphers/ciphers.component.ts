@@ -8,6 +8,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./ciphers.component.css']
 })
 export class CiphersComponent implements OnInit {
+  //class variable to store the final ciphered text
   finalText:string | undefined;
   
   constructor() {
@@ -17,7 +18,10 @@ export class CiphersComponent implements OnInit {
   ngOnInit(): void {
    
   }
-    //this method is called to capture the values of the users text, and number of skips
+    /**
+     * this method is called to capture the values of the users text, and number of skips
+     * and sets the class variable to the final text encoded
+     */
     getText(){
       var input = (<HTMLInputElement>document.getElementById("inputText")).value;
       var skips = parseInt((<HTMLInputElement>document.getElementById("inputSkips")).value);
@@ -47,7 +51,12 @@ export class CiphersComponent implements OnInit {
 
 }
 
-
+/**
+ * 
+ * @param input is the user input string to encode
+ * @param skips the users chosen number of skips in the cipher
+ * @returns the new encoded string
+ */
 function cipherText(input: string, skips: number) {
   var myString = "";
   var possible = "abcdefghijklmnopqrstuvwxyz";

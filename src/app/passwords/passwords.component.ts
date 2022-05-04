@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./passwords.component.css']
 })
 export class PasswordsComponent implements OnInit {
-
+// class varibles used for returning on the front end
   newPassword!: string;
   strengthLevel!: string;
   myStrength!:string;
@@ -18,7 +18,9 @@ export class PasswordsComponent implements OnInit {
 
   }
 
-  //method called to capture the number of characters and create a random password
+  /**
+   * method called to capture the number of characters and create a random password
+   */
   generatePass() {
     //capture the inputed number of characters by the user
     var numChars = parseInt((<HTMLInputElement>document.getElementById("inputChars")).value);
@@ -36,12 +38,18 @@ export class PasswordsComponent implements OnInit {
       timer: 1100
     })
   }
+  /**
+   * this method is called in the front end to set a password strength
+   */
   testMyPass(){
     //user input password
     var myPass =(<HTMLInputElement>document.getElementById("passInput")).value;
 
     this.myStrength = testStrength(myPass);
   }
+  /**
+   * this is used for the "show" checkbox on the users inputted password
+   */
   showPass(){
   var x = (<HTMLInputElement>document.getElementById("passInput"));
   if (x.type == "password") {
@@ -54,6 +62,11 @@ export class PasswordsComponent implements OnInit {
 }
 
 //returns resulting randompassword from Math.random
+/**
+ * 
+ * @param numChars takes in a number of characters specified by the user
+ * @returns a random resulting string of the length of the specified characters
+ */
 function randomPass(numChars: number) {
 
   var result = "";
@@ -69,6 +82,11 @@ function randomPass(numChars: number) {
 }
 
 //returns low, med, high or na 
+/**
+ * 
+ * @param password takes in any password, user based or created
+ * @returns a strength level of "low", "med", or "high"
+ */
 function testStrength(password: string){
 
   var lengthScore = password.length;
