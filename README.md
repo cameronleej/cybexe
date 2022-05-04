@@ -2,6 +2,9 @@
 
 ![CybexeLogo](/src/assets/Logo.png)
 
+## About Us
+cybexe is a web application created by our development team. We have a simulation of cybersecurity principles where you input a type of network, and parameters 
+of security and attack levels. The simulation shows how quickly, and forcefully malware can spread in a network and how important cybersecurity is to life on the internet. We want businesses, and regular people to be shown how important being safe on the internet is, and how passwords can be cracked easily. 
 
 ## Development server
 
