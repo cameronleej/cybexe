@@ -83,7 +83,6 @@ export class HomeComponent implements OnInit {
 
     // this code is for a fancy alert. Don't worry about it if you don't want to
     Swal.fire({
-      position: 'top-end',
       icon: 'success',
       title: 'Simulation has been run!',
       showConfirmButton: false,
