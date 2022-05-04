@@ -97,10 +97,7 @@ export class HomeComponent implements OnInit {
     return results;
   }
 
-  /**
-   * 
-   * @returns a list of the length of the number of nodes for ng for loop 
-   */
+  
   nodeList() {
     let list = new Array(this.nodes);
 
