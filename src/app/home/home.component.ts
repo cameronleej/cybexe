@@ -10,11 +10,12 @@ import Swal from 'sweetalert2';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-
+//these are the class variables for the 4 parameters on the simulation
   nodes! : number;
   malwareType! : string;
   malwareLevel! : string;
   nodeLevel! : string;
+
   //these are for printing to webpage purposes
   devicesInfected!:number;
   networkComp!:number;
@@ -35,6 +36,10 @@ export class HomeComponent implements OnInit {
   }
 
   //runs the simulation
+  /**
+   * @returns an array of 4 elements that correspond to the infected devices, entire network comprimised, runtime, and
+   * recovered devices
+   */
   runButton() {
     //initializing inputs
     var malwareType = (<HTMLInputElement>document.getElementById("malType")).value;
@@ -92,6 +97,10 @@ export class HomeComponent implements OnInit {
     return results;
   }
 
+  /**
+   * 
+   * @returns a list of the length of the number of nodes for ng for loop 
+   */
   nodeList() {
     let list = new Array(this.nodes);
 
@@ -102,7 +111,10 @@ export class HomeComponent implements OnInit {
     return list;
   }
 
-
+/**
+ * 
+ * @returns the calculated number of devices that were actually infected after recovery
+ */
   actualInfected() {
     var recov = (this.recovered/100)*this.nodes;
     var raw = (this.devicesInfected/100)*this.nodes;
@@ -112,12 +124,18 @@ export class HomeComponent implements OnInit {
     return real;
   }
 
+  /**
+   * 
+   * @returns the remaining number of nodes that weren't infected
+   */
   leftoverNodes() {
     return this.nodes - this.actualInfected();
   }
  
   
-
+/**
+ * Method used to display the help popup
+ */
   helpAlert() {
     Swal.fire({
       title: 'Don\'t worry!',
@@ -136,6 +154,11 @@ export class HomeComponent implements OnInit {
 
   //this method is called to set the value of the malware 
   //response in the information secion of the simulation
+  /**
+   * 
+   * @param type string that is the type of malware
+   * @returns a string of the description of each malware type
+   */
   printMalware(type:string):string{
     type = type.toLowerCase();
     switch(type){
@@ -160,6 +183,11 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  /**
+   * 
+   * @param level string is the level malware "low, med or high"
+   * @returns description of each malware level
+   */
   printMalwareLevel(level:string):string{
     level = level.toLowerCase();
     switch(level){
@@ -177,6 +205,11 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  /**
+   * 
+   * @param level string that is the level of security in the network
+   * @returns a string of a description of the low, med, or high security level properties
+   */
   printSecurityLevel(level:string):string{
     level = level.toLowerCase();
     switch(level){
