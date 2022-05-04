@@ -147,8 +147,8 @@ export class HomeComponent implements OnInit {
         return `A Trojan is a type of malware that looks like something familiar or trustworthy that, when clicked or executed,
                 it will steal information, disrupt, or even destroy your computer.`
       case "ransomware":
-        return `Ransomware is a type of malware that when executed stops, freezes, or blocks off access
-                to your computer until money or something value to the hacker, is given up.`
+        return `Ransomware is a type of malware that when executed encypts some or all of the files on a computer
+                 until money or something of value to the hacker, is given up.`
       case "worm":
         return `A Worm in computer terms is a type of Trojan Horse that replicates itself to step through a 
                 computer or systems network. These types of malware are used to steal data, remove usage of hard drive space, 
