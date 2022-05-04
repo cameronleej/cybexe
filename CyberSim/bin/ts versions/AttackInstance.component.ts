@@ -1,6 +1,10 @@
 import { Network } from "./network.component";
 import { Malware } from "./malware.component";
-
+/**
+ * args - malSpecs[malwareType, malwareStrength], netSpecs[deviceStrength, nodeCount]
+ * 
+ * Public methods: execute()
+ */
 export class AttackInstance {
 
     THRESHOLD: number = 0.65;
@@ -16,6 +20,18 @@ export class AttackInstance {
         this.networkSpecs = netSpecs;
     }
 
+    /**
+     *Comments : 	Simulates attack on network
+            A single device is exposed. If it is breached, all other devices in the network are tested.
+            Iterates through devices, compares malware atk score and device def score
+            If atk score is greater, adds to devices breached and tests next device
+            If def score is greater or equal, malware does not advance to the next device and the trial ends
+
+            After all devices are tested, all infected devices are given the chance to be recovered
+
+
+     * @returns [penetration: infected/count,  all devices breached?(1 or 0), time: semi-random, recovered: recovered/infected]
+     */
     execute() {
 
         //creates network with specified number of devices and device security level
@@ -23,24 +39,16 @@ export class AttackInstance {
         //creates malware of specified type with appropriate strength
         let malware = new Malware(this.malwareSpecs);
 
-        console.log("atk score = " + malware.atkScore)
         var scores:number[] = [];
         for(let i of network.getNodes())
             scores.push(i.getDef());
-        console.log("def scores = " + scores)
-        /*	Simulates attack on network
-            A single device is exposed. If it is breached, all other devices in the network are tested.
-            Iterates through devices, compares malware atk score and device def score
-            If atk score is greater, adds to devices breached and tests next device
-            If def score is greater or equal, malware does not advance to the next device and the trial ends
+       
 
-            After all devices are tested, all infected devices are given the chance to be recovered
-        */
         if (malware.getAtk() > network.getNodes()[0].getDef()) // attack first device to see if network is breached
         {
-            //attack all other devices on network
             network.getNodes()[0].infect();
-
+            
+            //attack all other devices on network
             for (let machine of network.cleanNodes()) {
                 if (malware.getAtk() > machine.getDef())
                     machine.infect();
@@ -77,13 +85,12 @@ export class AttackInstance {
         //Add random runtime to stop virus / infect all devices
         this.results.push(Math.random() * (this.initialInfection + network.countRecovered()) * 24);
 
-
+        //If devices were breached
         if (this.initialInfection != 0) {
 
             var percentRecovered = network.countRecovered() / this.initialInfection;
             this.results.push(percentRecovered);
         }
-        console.log("instance results = " + this.results);
         //penetration: infected/count,  all devices breached?(1 or 0), time: semi-random, recovered: recovered/infected
         return this.results;
     }
