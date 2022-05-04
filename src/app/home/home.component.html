@@ -1,8 +1,10 @@
+<!-- Sidebar -->
 <div class="container-fluid">
   <div class="d-flex flex-row">
     <div class="sidebar mt-5 ms-2 rounded shadow">
       <span class="d-flex header justify-content-center py-3 ">Parameters</span>
 
+      <!-- Input field for the number of nodes -->
       <div class="input-group mb-3 px-3">
         <span class="input-group-text input-custom-2" id="basic-addon1">
           <img src="assets\database.png" alt="" height="20">
@@ -11,6 +13,7 @@
           placeholder="number of nodes">
       </div>
 
+      <!-- Dropdown for Malware type -->
       <div class="px-3 mb-3">
         <img class="mx-2" src="assets\virus.png" alt="" height="20">
         <select class="input-custom rounded p-2" id="malType" aria-label="Default select example">
@@ -22,6 +25,7 @@
         </select>
       </div>
 
+      <!-- Dropdown for Malware level -->
       <div class="px-3 mb-3 ">
         <img class="mx-2" src="assets\swords.png" alt="" height="20">
         <select class="input-custom rounded p-2" id="malLevel" aria-label="Default select example">
@@ -32,6 +36,7 @@
         </select>
       </div>
 
+      <!-- Dropdown for Security Level -->
       <div class="px-3 mb-3 ">
         <img class="mx-2" src="assets\shield.png" alt="" height="20">
         <select class="input-custom rounded p-2" id="secLevel" aria-label="Default select example">
@@ -58,13 +63,11 @@
             <button type="button" style="font-size: 15pt;" class="btn run-button shadow mx-3"
               onClick="window.location.reload();">Reset</button>
 
-              <button type="button" style="font-size: 15pt;" class="btn run-button shadow"
+            <button type="button" style="font-size: 15pt;" class="btn run-button shadow"
               (click)="helpAlert()">Help</button>
             <!-- This is only for spacing -->
-            <div class="col-8">
-              
-            </div>
-            
+            <div class="col-8"></div>
+
 
             <!-- Run button -->
             <div class="col-3">
@@ -80,6 +83,8 @@
               <div class="d-flex flex-row p-3" style="height: 60%;">
                 <div class="col middle-section rounded p-2">
                   <div class="d-flex flex-row justify-content-center">
+
+                    <!-- Filling the top space with the correct number of nodes as grey SVGs -->
                     <ng-container *ngFor="let number of nodeList();index as i">
                       <svg style="padding:3px;" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="grey"
                         class="bi bi-hdd-stack" viewBox="0 0 16 16">
@@ -89,13 +94,10 @@
                           d="M5 11.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm-2 0a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM14 3a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h12zM2 2a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2z" />
                         <path d="M5 4.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm-2 0a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z" />
                       </svg>
-
-
-
                     </ng-container>
-
-
                   </div>
+
+                  <!-- The arrow seperating the grey nodes from the affected nodes -->
                   <div class="justify-content-center row m-5">
                     <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="currentColor"
                       class="bi bi-arrow-bar-down" viewBox="0 0 16 16">
@@ -106,8 +108,14 @@
 
                   <!--RETURNED NODES FROM SIMULATION-->
                   <div class="d-flex flex-row justify-content-center">
+
+                    <!-- looping for each node -->
                     <ng-container *ngFor="let number of nodeList();index as i">
+
+                      <!-- check if the current index is less than the number of nodes that were infected -->
                       <div *ngIf="i < actualInfected(); then thenBlock else elseBlock"></div>
+
+                      <!-- if the index is less than the number of infected nodes, turn them red -->
                       <ng-template #thenBlock>
                         <svg style="padding:3px;" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="red"
                           class="bi bi-hdd-stack" viewBox="0 0 16 16">
@@ -119,6 +127,7 @@
                         </svg>
                       </ng-template>
 
+                      <!-- if the index is greater than the number of infected nodes, turn them green -->
                       <ng-template #elseBlock>
                         <svg style="padding:3px;" xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="green"
                           class="bi bi-hdd-stack" viewBox="0 0 16 16">
@@ -128,16 +137,10 @@
                             d="M5 11.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm-2 0a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zM14 3a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h12zM2 2a2 2 0 0 0-2 2v1a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H2z" />
                           <path d="M5 4.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0zm-2 0a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0z" />
                         </svg>
-
-
                       </ng-template>
+
                     </ng-container>
-
-
                   </div>
-
-
-
                 </div>
               </div>
 
@@ -155,12 +158,11 @@
                   <p class="pb-3"><img class="mx-2" src="assets\shield.png" alt="" height="20">
                     <b>{{this.secLevel}} Level of Defense</b>: {{this.securityResponse}}
                   </p>
-
                 </div>
+
               </div>
             </div>
           </div>
-
         </div>
 
         <!-- The right column. Data -->
@@ -172,6 +174,7 @@
                 <span class="header">Data</span>
               </div>
 
+              <!-- Displaying all of the returned values from the simulation -->
               <div class="d-flex flex-row">
                 <div class="col data-inner rounded p-2">
                   <p><img class="mx-2" src="assets\virus.png" alt="" height="20">

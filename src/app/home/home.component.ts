@@ -92,6 +92,7 @@ export class HomeComponent implements OnInit {
     return results;
   }
 
+  
   nodeList() {
     let list = new Array(this.nodes);
 
