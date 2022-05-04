@@ -1,3 +1,8 @@
+/**
+ * Args: level - security level
+ * 
+ * Public methods: getDef(), getRec(), isInfected(), wasRecovered(), recover(), infect()
+ */
 export class Device{
     level: string = "";
     defScore: number =0;
@@ -12,10 +17,6 @@ export class Device{
     }
 
     //Getter Methods
-	getLevel() {
-		return this.level;
-	}
-	
 	getDef() {
 		return this.defScore;
 	}
@@ -32,7 +33,12 @@ export class Device{
         return this.recovered;
     }
 
-    defLevel(level:string){
+    /**
+     * 
+     * @param level - defense level
+     * @returns defense score in a range based on defense level (ability to resist being infected)
+     */
+    private defLevel(level:string){
         //console.log(level);
         switch(level.toLowerCase()) { // orignally 50->75->100
 			case "low": this.defScore =  30 + Math.random()*20; // 30-50
@@ -47,8 +53,12 @@ export class Device{
 		return this.defScore;
     }
 
-    recLevel(level:string) {
-		
+    /**
+     * 
+     * @param level - defense level
+     * @returns recovery score (ability to recover and infected device)
+     */
+    private recLevel(level:string) {
 		switch(level.toLowerCase()) {
 			case "low": this.recScore =  30 + Math.random()*15; // 30-45
 				break;
@@ -62,11 +72,13 @@ export class Device{
 		return this.recScore;
     }
 
+    //Sets an infected device to not be infected, flags that it has been recovered
     recover(){
         this.recovered = true;
         this.infected = false;
     }
 
+    //Marks a device as infected
     infect(){
         this.infected = true;
     }

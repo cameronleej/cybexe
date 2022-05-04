@@ -1,10 +1,12 @@
 import { Device } from "./device.component";
-
+/**
+ * Args - specs=[number of nodes, strength level]
+ * 
+ * public methods: infectedNodes(), cleanNodes(), recoveredNodes(), countInfected(), countRecovered(), getNodes()
+ */
 export class Network {
     devices: Device[] = [];
     
-
-
     constructor(specs: (number | string)[]) {
         var count: number;
         var level: string;
@@ -16,7 +18,10 @@ export class Network {
         }
     }
 
-    //returns list of all devices w/ infected status
+    /**
+     * 
+     * @returns a list of all devices with the infected status
+     */
     infectedNodes() {
         var infectedNodes: Device[] = [];
         for (let node of this.devices) {
@@ -27,6 +32,10 @@ export class Network {
         return infectedNodes;
     }
 
+    /**
+     * 
+     * @returns a list of all devices without the infected status
+     */
     cleanNodes() {
         var cleanNodes: Device[] = [];
         for (let node of this.devices) {
@@ -37,6 +46,10 @@ export class Network {
         return cleanNodes;
     }
 
+    /**
+     * 
+     * @returns a list of all devices with the recoved status
+     */
     recoveredNodes() {
         var recoveredNodes: Device[] = [];
         for (let node of this.devices) {
@@ -47,18 +60,17 @@ export class Network {
         return recoveredNodes;
     }
 
+    //Returns count of infected devices
     countInfected() {
         return this.infectedNodes().length;
     }
 
-    countClean() {
-       
-        return this.cleanNodes().length;
-    }
-
+    //returns count of recovered devices
     countRecovered() {
         return this.recoveredNodes().length;
     }
+
+    //returns list of all devices in network
     getNodes() {
         return this.devices;
     }

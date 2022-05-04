@@ -1,5 +1,10 @@
 import { AttackInstance } from "./AttackInstance.component";
 
+/**
+ * Args: runSpecs - [malware type, malware strength, network security level, network node count]
+ * 
+ * Public methods: Run()
+ */
 export class Simulation{
     runData: (number[])[] = [];
 	avgData: number[] = []; //originally object array
@@ -9,6 +14,8 @@ export class Simulation{
 	recovery: number[] = [];
     malSpecs: string[] = [];
     netSpecs:(number|string)[] = [];
+
+
     constructor(runSpecs:(number|string)[]){
 
         this.malSpecs.push(String(runSpecs[0]));
@@ -18,6 +25,12 @@ export class Simulation{
         this.netSpecs.push(String(runSpecs[3]));
 
     }
+	/**
+	 * Comments: Execute 20 attackInstance trials, stores, parses, and averages results
+	 * 
+	 * @returns List[Average % initail breach, % of trials resulting in all devices being infected, 
+	 * 				estimated time to complete process, % of infected devices recovered] 
+	 */
 
     run(){
 		//Runs 20 trials, placing each list of results into a nested list
@@ -46,13 +59,15 @@ export class Simulation{
         this.avgData.push(this.percent(this.Average(this.recovery)));
 		else
         this.avgData.push(-1);
-		console.log(this.recovery);
-		//penetration: infected/count,  all devices breached?(1 or 0), time: semi-random, recovered: recovered/infected
+		
 		return this.avgData;
 	}
-	
-	//Take the average of a list of doubles
-	Average(vals:number[]) {
+	/**
+	 * 
+	 * @param vals - list of numbers to be averaged
+	 * @returns average of vals, not rounded
+	 */
+	private Average(vals:number[]) {
 		var average = 0;
 		var total = 0;
 		
@@ -63,8 +78,12 @@ export class Simulation{
 		return average;
 	}
 	
-	//Converts from decimal to percent
-	percent(value:number) {
+	/**
+	 * 
+	 * @param value - number to be converted to a percentage
+	 * @returns value as a decimal, rounded to the nearest whole number
+	 */
+	private percent(value:number) {
 	    return parseFloat((Math.round(value*100)).toFixed(2));
 	}
     
