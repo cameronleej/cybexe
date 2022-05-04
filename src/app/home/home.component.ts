@@ -92,6 +92,7 @@ export class HomeComponent implements OnInit {
     return results;
   }
 
+  
   nodeList() {
     let list = new Array(this.nodes);
 
@@ -147,12 +148,13 @@ export class HomeComponent implements OnInit {
         return `A Trojan is a type of malware that looks like something familiar or trustworthy that, when clicked or executed,
                 it will steal information, disrupt, or even destroy your computer.`
       case "ransomware":
-        return `Ransomware is a type of malware that when executed stops, freezes, or blocks off access
-                to your computer until money or something value to the hacker, is given up.`
+        return `Ransomware is a type of malware that when executed encypts some or all of the files on a computer
+                 until money or something of value to the hacker, is given up.`
       case "worm":
-        return `A Worm in computer terms is a type of Trojan Horse that replicates itself to step through a 
-                computer or systems network. These types of malware are used to steal data, remove usage of hard drive space, 
-                and overpower networks so that they cannot be used correctly. `
+        return `A Worm is a type of malware that replicates itself to step through a 
+                computer or systems network. Unlike a virus, worms do not need a host or human interaction to duplcate. 
+                Worms can perform various actions, but the most common
+                are stealing data, using system resources, or creating backdoors into systems.`
       default:
         return "A Malware Type was not given..."
 

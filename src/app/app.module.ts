@@ -14,6 +14,7 @@ import { TomComponent } from './tom/tom.component';
 import { DylanComponent } from './dylan/dylan.component';
 import { FormsModule } from '@angular/forms';
 import { HaidaraComponent } from './haidara/haidara.component';
+import { DannyComponent } from './danny/danny.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { HaidaraComponent } from './haidara/haidara.component';
     TomComponent,
     DylanComponent,
     HaidaraComponent,
+    DannyComponent,
   ],
   imports: [
     BrowserModule,
