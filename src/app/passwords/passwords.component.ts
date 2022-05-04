@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-passwords',
@@ -25,6 +26,15 @@ export class PasswordsComponent implements OnInit {
     this.newPassword = randomPass(numChars);
     this.strengthLevel = testStrength(this.newPassword);
     console.log(this.newPassword)
+
+    // this code is for a fancy alert. Don't worry about it if you don't want to
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Password Generated!',
+      showConfirmButton: false,
+      timer: 1100
+    })
   }
   testMyPass(){
     //user input password

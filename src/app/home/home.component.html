@@ -11,7 +11,7 @@
           placeholder="number of nodes">
       </div>
 
-      <div class="px-3 mb-3 ">
+      <div class="px-3 mb-3">
         <img class="mx-2" src="assets\virus.png" alt="" height="20">
         <select class="input-custom rounded p-2" id="malType" aria-label="Default select example">
           <option disabled selected>Malware Type</option>
@@ -55,10 +55,16 @@
           <div class="d-flex flex-row my-2">
 
             <!--Reset button-->
-            <button type="button" style="font-size: 15pt;" class="btn run-button shadow"
+            <button type="button" style="font-size: 15pt;" class="btn run-button shadow mx-3"
               onClick="window.location.reload();">Reset</button>
+
+              <button type="button" style="font-size: 15pt;" class="btn run-button shadow"
+              (click)="helpAlert()">Help</button>
             <!-- This is only for spacing -->
-            <div class="col-9"></div>
+            <div class="col-8">
+              
+            </div>
+            
 
             <!-- Run button -->
             <div class="col-3">

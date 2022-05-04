@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Simulation } from 'CyberSim/bin/ts versions/simulation.component';
 import { retry } from 'rxjs';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -79,6 +80,15 @@ export class HomeComponent implements OnInit {
     
     this.securityResponse = this.printSecurityLevel(deviceLevel);
 
+
+    // this code is for a fancy alert. Don't worry about it if you don't want to
+    Swal.fire({
+      icon: 'success',
+      title: 'Simulation has been run!',
+      showConfirmButton: false,
+      timer: 1100
+    })
+
     return results;
   }
 
@@ -106,6 +116,22 @@ export class HomeComponent implements OnInit {
     return this.nodes - this.actualInfected();
   }
  
+  
+
+  helpAlert() {
+    Swal.fire({
+      title: 'Don\'t worry!',
+      html: 'This site is meant to run a very simple cybersecurity simulation based on parameters that you can enter on the sidebar. <br>'+
+      '<ul>'+
+      '<li>Enter the number of nodes on the network.</li>'+
+      '<li>Enter the type of malware you\'d like to test.</li>'+
+      '<li>Enter the \"level\" of malware. Basically, how dangerous it is.</li>'+
+      '<li>Enter the network\'s security level</li>'+
+      '</ul>',
+      icon: 'info',
+      confirmButtonColor: "#5b787e"
+    });
+  }
 
 
   //this method is called to set the value of the malware 
@@ -121,12 +147,13 @@ export class HomeComponent implements OnInit {
         return `A Trojan is a type of malware that looks like something familiar or trustworthy that, when clicked or executed,
                 it will steal information, disrupt, or even destroy your computer.`
       case "ransomware":
-        return `Ransomware is a type of malware that when executed stops, freezes, or blocks off access
-                to your computer until money or something value to the hacker, is given up.`
+        return `Ransomware is a type of malware that when executed encypts some or all of the files on a computer
+                 until money or something of value to the hacker, is given up.`
       case "worm":
-        return `A Worm in computer terms is a type of Trojan Horse that replicates itself to step through a 
-                computer or systems network. These types of malware are used to steal data, remove usage of hard drive space, 
-                and overpower networks so that they cannot be used correctly. `
+        return `A Worm is a type of malware that replicates itself to step through a 
+                computer or systems network. Unlike a virus, worms do not need a host or human interaction to duplcate. 
+                Worms can perform various actions, but the most common
+                are stealing data, using system resources, or creating backdoors into systems.`
       default:
         return "A Malware Type was not given..."
 
